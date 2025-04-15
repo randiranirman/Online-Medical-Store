@@ -1,5 +1,5 @@
 package org.example.onlinemediclestore.Classes;
 
-public class Admin{
+public class OTCMedicine extends  Medicine{
 
 }

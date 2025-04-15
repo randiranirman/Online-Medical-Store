@@ -16,7 +16,8 @@
       <li><a href="#" class="hover:text-blue-600 transition">Home</a></li>
       <li><a href="#" class="hover:text-blue-600 transition">Medicines</a></li>
       <li><a href="#" class="hover:text-blue-600 transition">Contact</a></li>
-      <li><a href="#" class="hover:text-blue-600 transition">Login</a></li>
+      <li><a href="login.jsp" class="hover:text-blue-600 transition">Login</a></li>
+      <li><a href="signup.jsp" class="hover:text-blue-600 transition">Signup</a></li>
     </ul>
   </div>
 </nav>

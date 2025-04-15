@@ -2,13 +2,38 @@ package org.example.onlinemediclestore.Classes;
 
 public class User {
 
-    protected  String username;
-    protected  String password;
+    private   String username;
+    private
+    String password;
 
     protected String id ;
-    protected  String email;
+    private   String email;
 
     protected  String name;
-    protected String role;
+    private String role;
 
+    public User(String name, String username, String password, String role,String email) {
+        this.name= name;
+        this.username= username;
+        this.password= password;
+        this.role= role;
+        this.email= email;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }
