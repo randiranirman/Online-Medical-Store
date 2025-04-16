@@ -45,6 +45,7 @@ public class UserServlet extends HttpServlet {
             session.setAttribute("password", password);
 
             User user = new User(name, username,password, role,email);
+            session.setAttribute("user", user);
             userFileHandler.saveUser(user);
 
 

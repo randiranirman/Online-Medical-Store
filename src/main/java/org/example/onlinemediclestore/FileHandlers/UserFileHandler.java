@@ -53,6 +53,7 @@ public class UserFileHandler implements IUserFileHandler {
         // Save updated list back to file
         try (FileWriter writer = new FileWriter(FILE_PATH)) {
             writer.write(JsonHelper.toJson(users));
+            writer.write("\n");
             System.out.println("User saved successfully to " + FILE_PATH);
         } catch (IOException e) {
             e.printStackTrace();
@@ -82,7 +83,16 @@ public class UserFileHandler implements IUserFileHandler {
 
     @Override
     public List<User> getAllUsers() {
-        return null;
+
+        try(FileReader reader = new FileReader(FILE_PATH) ){
+            String json = readerToString(reader);
+            List<User> users = JsonHelper.fromJsonToList(json,User.class);
+            return users != null ? users : new ArrayList<>();
+
+        } catch (IOException e){
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
     }
 
     @Override
