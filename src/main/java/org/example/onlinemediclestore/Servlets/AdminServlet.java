@@ -10,46 +10,34 @@ import org.example.onlinemediclestore.Classes.Supplier;
 import org.example.onlinemediclestore.FileHandlers.SupplierFileHandler;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/CreateSupplier")
+@WebServlet("/Supplier")
+public class AdminServlet extends HttpServlet {
+    SupplierFileHandler handler = new SupplierFileHandler();
 
-public class AdminServlet  extends HttpServlet {
-    SupplierFileHandler handler  = new SupplierFileHandler()
-;
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("name");
+        String username = request.getParameter("username");
+        String password = PasswordHasher.hashPassword(request.getParameter("password"));
+        String email = request.getParameter("email");
+        String companyName = request.getParameter("companyName");
+        String address = request.getParameter("address");
 
-    protected  void doPost (HttpServletRequest request , HttpServletResponse response) throws ServletException, IOException {
+        Supplier supplier = new Supplier(name, username, password, email, companyName, address);
+        handler.writeSupplierToFile(supplier); // save new supplier
 
-    String name = request.getParameter("name");
-    String username= request.getParameter("username");
-    String password = PasswordHasher.hashPassword( request.getParameter("password"));
-    String email = request.getParameter("email");
-
-    String companyName =  request.getParameter("companyName");
-    String address = request.getParameter("address");
-
-        // read existing supplier form  file
-        Supplier supplier = new Supplier(name, username, password, email, companyName,address);
-        List<Supplier> supplierList=  handler.readSupplierFromFile();
-
-        // add new supplier
-        supplierList.add(supplier);
-
-        // pass data  to jsp
-        request.setAttribute("supplier" , supplier);
-
-        request.getRequestDispatcher("supplier.jsp").forward(request, response);
-
-
-
-
-
-
-
+        // Redirect to the same servlet (which triggers doGet)
+        response.sendRedirect(request.getContextPath() + "/Supplier");
     }
-    protected  void doGet( HttpServletRequest request, HttpServletResponse response)  throws  IOException,ServletException{
 
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Supplier> supplierList = handler.readSupplierFromFile();
 
+        // Pass the list to JSP
+        request.setAttribute("suppliers", supplierList);
+        request.getRequestDispatcher( "viewSupplier.jsp").forward(request, response);
     }
 }

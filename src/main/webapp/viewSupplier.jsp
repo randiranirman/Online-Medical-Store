@@ -1,16 +1,85 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Randira Nirman
-  Date: 4/16/2025
-  Time: 9:34 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ page import="org.example.onlinemediclestore.Classes.Supplier" %>
+<%@ page import="java.util.List" %>
+<%
+    List<Supplier> suppliers = (List<Supplier>) request.getAttribute("suppliers");
+%>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Manage Suppliers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-100 p-6">
+
+<div class="container mx-auto">
+    <h1 class="text-3xl font-bold mb-6 text-center text-blue-700">Supplier Management</h1>
+
+    <!-- Add Supplier Form -->
+    <div class="bg-white p-6 rounded shadow-md mb-8">
+        <h2 class="text-xl font-semibold mb-4 text-gray-700">Add New Supplier</h2>
+        <form action="./Supplier" method="post" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input type="text" name="name" placeholder="Full Name" required
+                   class="border p-2 rounded w-full" />
+            <input type="text" name="username" placeholder="Username" required
+                   class="border p-2 rounded w-full" />
+            <input type="email" name="email" placeholder="Email" required
+                   class="border p-2 rounded w-full" />
+            <input type="password" name="password" placeholder="Password" required
+                   class="border p-2 rounded w-full" />
+            <input type="text" name="companyName" placeholder="Company Name" required
+                   class="border p-2 rounded w-full" />
+            <input type="text" name="address" placeholder="Address" required
+                   class="border p-2 rounded w-full" />
+            <div class="md:col-span-2">
+                <button type="submit"
+                        class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition duration-200 w-full">
+                    Add Supplier
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Suppliers Table -->
+    <div class="bg-white p-6 rounded shadow-md">
+        <h2 class="text-xl font-semibold mb-4 text-gray-700">All Suppliers</h2>
+        <table class="min-w-full border-collapse border border-gray-300">
+            <thead class="bg-blue-100">
+            <tr>
+                <th class="border border-gray-300 px-4 py-2">Name</th>
+                <th class="border border-gray-300 px-4 py-2">Username</th>
+                <th class="border border-gray-300 px-4 py-2">Email</th>
+                <th class="border border-gray-300 px-4 py-2">Company</th>
+                <th class="border border-gray-300 px-4 py-2">Address</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%
+                if (suppliers != null && !suppliers.isEmpty()) {
+                    for (Supplier supplier : suppliers) {
+            %>
+            <tr class="bg-gray-50 hover:bg-gray-100">
+                <td class="border border-gray-300 px-4 py-2"><%= supplier.getName() %></td>
+                <td class="border border-gray-300 px-4 py-2"><%= supplier.getUsername() %></td>
+                <td class="border border-gray-300 px-4 py-2"><%= supplier.getEmail() %></td>
+                <td class="border border-gray-300 px-4 py-2"><%= supplier.getCompanyName() %></td>
+                <td class="border border-gray-300 px-4 py-2"><%= supplier.getAddress() %></td>
+            </tr>
+            <%
+                }
+            } else {
+            %>
+            <tr>
+                <td colspan="5" class="text-center py-4 text-gray-500">No suppliers found.</td>
+            </tr>
+            <%
+                }
+            %>
+            </tbody>
+        </table>
+    </div>
+</div>
 
 </body>
 </html>
