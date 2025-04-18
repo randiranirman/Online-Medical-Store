@@ -13,8 +13,8 @@
     <div class="container mx-auto flex justify-between items-center">
         <span class="text-white text-2xl font-bold">Admin Dashboard</span>
         <div class="space-x-4">
-            <a href="viewSupplier.jsp" class="text-white hover:underline">View Suppliers</a>
-            <a href="viewUsers.jsp" class="text-white hover:underline">View Users</a>
+            <a href="${pageContext.request.contextPath}/supplier" class="text-white hover:underline">View Suppliers</a>
+            <a href="${pageContext.request.contextPath}/user" class="text-white hover:underline">View Users</a>
             <a href="viewMedicines.jsp" class="text-white hover:underline">View Medicines</a>
             <a href="viewOrders.jsp" class="text-white hover:underline">View Orders</a>
         </div>

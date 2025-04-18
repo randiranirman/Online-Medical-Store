@@ -12,7 +12,7 @@ import org.example.onlinemediclestore.FileHandlers.SupplierFileHandler;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/Supplier")
+@WebServlet("/supplier")
 public class AdminServlet extends HttpServlet {
     SupplierFileHandler handler = new SupplierFileHandler();
 

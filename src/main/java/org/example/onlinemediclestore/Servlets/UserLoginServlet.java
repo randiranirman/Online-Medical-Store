@@ -30,7 +30,7 @@ public class UserLoginServlet  extends HttpServlet
 
                 // Redirect to dashboard on success
                 response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/dashboard.jsp"));
-                return;
+                return; 
             }
         }
 

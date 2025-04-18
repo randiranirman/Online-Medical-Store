@@ -17,7 +17,7 @@ import java.io.PrintWriter;
 
 
 @WebServlet("/signup")
-public class UserServlet extends HttpServlet {
+public class         UserServlet extends HttpServlet {
     UserFileHandler userFileHandler= new UserFileHandler();
 
 
@@ -65,6 +65,7 @@ public class UserServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request , HttpServletResponse response){
+
 
 
     }
