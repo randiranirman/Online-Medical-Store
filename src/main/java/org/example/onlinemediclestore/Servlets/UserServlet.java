@@ -5,19 +5,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import org.example.onlinemediclestore.Classes.PasswordHasher;
+import org.example.onlinemediclestore.utils.PasswordHasher;
 import org.example.onlinemediclestore.Classes.User;
-import org.example.onlinemediclestore.FileConfig.Config;
 import org.example.onlinemediclestore.FileHandlers.UserFileHandler;
-import org.example.onlinemediclestore.Interfaces.IUserFileHandler;
-import org.example.onlinemediclestore.utils.JsonHelper;
-
-import java.io.IOException;
-import java.io.PrintWriter;
 
 
 @WebServlet("/signup")
-public class         UserServlet extends HttpServlet {
+public class    UserServlet extends HttpServlet {
     UserFileHandler userFileHandler= new UserFileHandler();
 
 
@@ -35,6 +29,7 @@ public class         UserServlet extends HttpServlet {
                 request.getRequestDispatcher("signup.jsp").forward(request,response);
                 return;
             }
+
 
 
 

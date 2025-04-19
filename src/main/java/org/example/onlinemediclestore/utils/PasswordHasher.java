@@ -1,4 +1,4 @@
-package org.example.onlinemediclestore.Classes;
+package org.example.onlinemediclestore.utils;
 
 import org.mindrot.jbcrypt.BCrypt;
 public class PasswordHasher {

@@ -15,6 +15,7 @@
 
 <div class="container mx-auto">
     <h1 class="text-3xl font-bold mb-6 text-center text-blue-700">Supplier Management</h1>
+    <a  href="./admin.jsp" class="text-blue-500 mb-4 font-semibold"> <- Go to dashboard</a>
 
     <!-- Add Supplier Form -->
     <div class="bg-white p-6 rounded shadow-md mb-8">

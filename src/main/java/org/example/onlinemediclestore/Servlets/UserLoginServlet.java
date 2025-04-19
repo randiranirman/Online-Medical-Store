@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import org.example.onlinemediclestore.Classes.PasswordHasher;
+import org.example.onlinemediclestore.utils.PasswordHasher;
 import org.example.onlinemediclestore.Classes.User;
 import org.example.onlinemediclestore.FileHandlers.UserFileHandler;
 
