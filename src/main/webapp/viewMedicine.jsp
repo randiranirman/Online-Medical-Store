@@ -60,6 +60,12 @@
             </button>
         </div>
     </form>
+    <% String successMessage = (String) request.getAttribute("successMessage"); %>
+    <% if (successMessage != null) { %>
+    <div style="color: green; font-weight: bold;">
+        <%= successMessage %>
+    </div>
+    <% } %>
 </div>
 
 <!-- Footer -->

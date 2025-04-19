@@ -6,6 +6,7 @@ public enum Config {
     TRANSACTIONS("medicare/transactions.json"),
     ORDERS("medicare/orders.json"),
     SUPPLIERS("medicare/suppliers.json"),
+    UPLOAD_DIR("medicare/uploads/"),
     MEDICINES("medicare/medicines.json");
 
     private final String path;
