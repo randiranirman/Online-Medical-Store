@@ -45,6 +45,8 @@
                     <td class="px-6 py-4 text-sm text-gray-800">
                         <form action="./delete" method="post" class="inline" onsubmit="return confirm('Are you sure you want to delete this user?');">
                             <input type="hidden" name="username" value="<%= user.getUsername() %>"/>
+
+                            <input type="hidden"  name="type" value="customer">
                             <button type="submit" class="bg-blue-500 hover:bg-blue-400 text-white px-4 py-1 rounded">
                                 Edit
                             </button>

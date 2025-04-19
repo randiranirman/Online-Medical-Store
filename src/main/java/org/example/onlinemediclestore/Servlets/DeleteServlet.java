@@ -5,45 +5,53 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.example.onlinemediclestore.Classes.Customer;
 import org.example.onlinemediclestore.Classes.Supplier;
 import org.example.onlinemediclestore.FileConfig.Config;
 import org.example.onlinemediclestore.utils.GenericCRUD;
 
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet("/delete")
 public class DeleteServlet extends HttpServlet {
-    private final String FILEPATH = Config.SUPPLIERS.getPath();
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String type = request.getParameter("type");        // e.g., "customer", "supplier", "product"
         String username = request.getParameter("username");
 
-        if (username != null && !username.trim().isEmpty()) {
-            GenericCRUD<Supplier> supplierCRUD = new GenericCRUD<>(Supplier.class, FILEPATH);
-
-            // Delete the supplier by username
-            supplierCRUD.delete(s -> s.getUsername().equals(username));
-            System.out.println("User deleted: " + username);
-
-            // Redirect to the viewSupplier.jsp to fetch updated data
-            response.sendRedirect(request.getContextPath() + "/viewSupplier.jsp");
-
-        } else {
-            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Username is missing.");
+        if (type == null || type.isEmpty()) {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Missing type parameter.");
+            return;
         }
-    }
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        GenericCRUD<Supplier> supplierCRUD = new GenericCRUD<>(Supplier.class, FILEPATH);
+        switch (type) {
+            case "supplier":
+                if (username != null && !username.trim().isEmpty()) {
+                    GenericCRUD<Supplier> supplierCRUD = new GenericCRUD<>(Supplier.class, Config.SUPPLIERS.getPath());
+                    supplierCRUD.delete(s -> s.getUsername().equals(username));
+                    System.out.println("Supplier deleted: " + username);
+                        response.sendRedirect(request.getContextPath() + "/supplier");
+                } else {
+                    response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Missing supplier username.");
+                }
+                break;
 
-        // Read all suppliers
-        List<Supplier> supplierList = supplierCRUD.readAll();
+            case "customer":
+                if (username != null && !username.trim().isEmpty()) {
+                    GenericCRUD<Customer> customerCRUD = new GenericCRUD<>(Customer.class, Config.USERS.getPath());
+                    customerCRUD.delete(c -> c.getUsername().equals(username));
+                    System.out.println("Customer deleted: " + username);
+                    response.sendRedirect(request.getContextPath() + "/user");
+                } else {
+                    response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Missing customer username.");
+                }
+                break;
 
-        // Set as attribute and forward to view
-        request.setAttribute("supplierList", supplierList);
-        request.getRequestDispatcher("/viewSupplier.jsp").forward(request, response);
+
+
+            default:
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid deletion type.");
+        }
     }
 }
