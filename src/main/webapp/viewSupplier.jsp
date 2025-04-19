@@ -10,6 +10,12 @@
     <meta charset="UTF-8">
     <title>Manage Suppliers</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module">
+        import {openEditModel} from "./js/editPopup.js";
+        import {closeEditModel} from "./js/editPopup.js";
+        window.openEditModel= openEditModel;
+        window.closeEditModel= closeEditModel;
+    </script>
 </head>
 <body class="bg-gray-100 p-6">
 
@@ -75,6 +81,8 @@
                             Delete
                         </button>
                     </form>
+
+
                 </td>
             </tr>
             <%

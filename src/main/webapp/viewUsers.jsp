@@ -49,9 +49,7 @@
                                 <input type="hidden" name="username" value="<%= user.getUsername() %>"/>
 
                                 <input type="hidden"  name="type" value="customer">
-                                <button type="submit" class="bg-blue-500 hover:bg-blue-400 text-white px-4 py-1 rounded">
-                                    Edit
-                                </button>
+
                                 <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded">
                                     Delete
                                 </button>

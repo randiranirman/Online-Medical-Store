@@ -64,6 +64,7 @@ public class GenericCRUD<T> {
         writeAll(items);
     }
 
+
     public Optional<T> get(java.util.function.Predicate<T> predicate) {
         return readAll().stream().filter(predicate).findFirst();
     }

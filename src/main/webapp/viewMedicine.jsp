@@ -27,7 +27,7 @@
 
 <!-- Form Section -->
 <div class="max-w-2xl mx-auto mt-8 bg-white p-8 rounded-lg shadow-lg">
-    <form action="addMedicine" method="post" enctype="multipart/form-data" class="space-y-6">
+    <form action="./addMedicine" method="post" enctype="multipart/form-data" class="space-y-6">
 
         <div>
             <label class="block mb-1 font-medium text-gray-700">Medicine Name</label>
