@@ -29,7 +29,7 @@ public class AdminServlet extends HttpServlet {
         handler.writeSupplierToFile(supplier); // save new supplier
 
         // Redirect to the same servlet (which triggers doGet)
-        response.sendRedirect(request.getContextPath() + "/Supplier");
+        response.sendRedirect(request.getContextPath() + "/supplier");
     }
 
     @Override

@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>Medicare - Online Medical Store</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="images/assets.js" ></script>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
 
@@ -38,7 +39,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       <!-- Product Card -->
       <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-        <img src="https://via.placeholder.com/150" alt="Medicine" class="w-full h-40 object-cover mb-4 rounded">
+        <img src="./images/VITAMIN-C-300x300.jpeg" alt="Medicine" class="w-full h-40 object-cover mb-4 rounded">
         <h4 class="text-lg font-semibold text-gray-800">Paracetamol 500mg</h4>
         <p class="text-sm text-gray-600 mb-2">Effective pain relief tablet</p>
         <span class="text-blue-600 font-bold">Rs. 50</span>
@@ -46,7 +47,7 @@
 
       <!-- Repeat above card as needed -->
       <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-        <img src="https://via.placeholder.com/150" alt="Medicine" class="w-full h-40 object-cover mb-4 rounded">
+        <img src="./images/multivitamin.jpg" alt="Medicine" class="w-full h-40 object-cover mb-4 rounded">
         <h4 class="text-lg font-semibold text-gray-800">Cough Syrup</h4>
         <p class="text-sm text-gray-600 mb-2">Soothes throat irritation</p>
         <span class="text-blue-600 font-bold">Rs. 80</span>

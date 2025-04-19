@@ -43,8 +43,15 @@
                     <td class="px-6 py-4 text-sm text-gray-800"><%= user.getEmail() %></td>
                     <td class="px-6 py-4 text-sm text-gray-800"><%= user.getUsername() %></td>
                     <td class="px-6 py-4 text-sm text-gray-800">
-                        <button  class="px-4 py-2 bg-blue-600 text-white rounded-lg ">Edit</button>
-                            <button  class=" px-2 py-2 bg-red-600 text-white rounded-lg ">Delete</button>
+                        <form action="./delete" method="post" class="inline" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                            <input type="hidden" name="username" value="<%= user.getUsername() %>"/>
+                            <button type="submit" class="bg-blue-500 hover:bg-blue-400 text-white px-4 py-1 rounded">
+                                Edit
+                            </button>
+                            <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded">
+                                Delete
+                            </button>
+                        </form>
                     </td>
 
 

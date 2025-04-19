@@ -19,7 +19,7 @@
     <!-- Add Supplier Form -->
     <div class="bg-white p-6 rounded shadow-md mb-8">
         <h2 class="text-xl font-semibold mb-4 text-gray-700">Add New Supplier</h2>
-        <form action="./Supplier" method="post" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <form action="./supplier" method="post" class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <input type="text" name="name" placeholder="Full Name" required
                    class="border p-2 rounded w-full" />
             <input type="text" name="username" placeholder="Username" required
@@ -52,6 +52,7 @@
                 <th class="border border-gray-300 px-4 py-2">Email</th>
                 <th class="border border-gray-300 px-4 py-2">Company</th>
                 <th class="border border-gray-300 px-4 py-2">Address</th>
+                <th class="border border-gray-300 px-4 py-2">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -65,6 +66,14 @@
                 <td class="border border-gray-300 px-4 py-2"><%= supplier.getEmail() %></td>
                 <td class="border border-gray-300 px-4 py-2"><%= supplier.getCompanyName() %></td>
                 <td class="border border-gray-300 px-4 py-2"><%= supplier.getAddress() %></td>
+                <td class="border border-gray-300 px-4 py-2">
+                    <form method="post" action="./delete"   onsubmit="return confirm('Are you sure you want to delete this user?');" style="display:inline;">
+                        <input type="hidden" name="username" value="<%= supplier.getUsername() %>"/>
+                        <button type="submit" class="text-red-600 hover:text-red-800 font-semibold">
+                            Delete
+                        </button>
+                    </form>
+                </td>
             </tr>
             <%
                 }

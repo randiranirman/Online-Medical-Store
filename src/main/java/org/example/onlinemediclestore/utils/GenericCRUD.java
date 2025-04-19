@@ -19,7 +19,7 @@ public class GenericCRUD<T> {
         this.file = new File(filePath);
     }
 
-    private List<T> readAll() {
+    public List<T> readAll() {
         try (Reader reader = new FileReader(file)) {
             Type listType = TypeToken.getParameterized(List.class, typeParameterClass).getType();
             List<T> dataList = gson.fromJson(reader, listType);
