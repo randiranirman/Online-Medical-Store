@@ -37,9 +37,18 @@
         </div>
 
         <!-- Error Message Display -->
-        <c:if test="${not empty error}">
-            <p class="text-red-500 text-sm text-center mt-2">${error}</p>
-        </c:if>
+        <!-- Form Starts Here -->
+        <%
+            String error = (String) request.getAttribute("errorMessage");
+            if (error != null) {
+        %>
+        <div class="mb-4 p-3 bg-red-100 text-red-700 border border-red-400 rounded-md text-sm">
+            <%= error %>
+        </div>
+        <%
+            }
+        %>
+
 
         <!-- Login Button -->
         <div class="mt-6">

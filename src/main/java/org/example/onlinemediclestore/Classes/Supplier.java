@@ -1,8 +1,12 @@
 package org.example.onlinemediclestore.Classes;
 
+import java.util.ArrayList;
+
 public class Supplier extends User {
 
     private String companyName;
+    private ArrayList<Medicine> medicineList;
+
     private String address;
 
     // Full constructor for creating a new supplier
@@ -10,6 +14,7 @@ public class Supplier extends User {
         super(name, username, password, "supplier", email);
         this.companyName = companyName;
         this.address = address;
+
     }
 
     // Constructor for updating supplier (assuming password and role remain unchanged)

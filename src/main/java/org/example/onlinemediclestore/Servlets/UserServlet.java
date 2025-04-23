@@ -33,11 +33,13 @@ public class    UserServlet extends HttpServlet {
 
 
 
+
             // setting attributes in the session
             HttpSession session = request.getSession();
             session.setAttribute("username",username);
             session.setAttribute("name", name);
             session.setAttribute("password", password);
+            session.setAttribute("role", role);
 
             User user = new User(name, username,password, role,email);
             session.setAttribute("user", user);

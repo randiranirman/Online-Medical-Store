@@ -46,4 +46,7 @@ public class User {
         return this.name;
     }
 
+    public String getRole() {
+        return role;
+    }
 }

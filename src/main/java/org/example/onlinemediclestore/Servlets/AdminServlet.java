@@ -25,9 +25,13 @@ public class AdminServlet extends HttpServlet {
         String companyName = request.getParameter("companyName");
         String address = request.getParameter("address");
 
+
         Supplier supplier = new Supplier(name, username, password, email, companyName, address);
         handler.writeSupplierToFile(supplier); // save new supplier
 
+
+        request.getSession().setAttribute("user",supplier);
+        request.getSession().setAttribute("role","supplier");
         // Redirect to the same servlet (which triggers doGet)
         response.sendRedirect(request.getContextPath() + "/supplier");
     }
