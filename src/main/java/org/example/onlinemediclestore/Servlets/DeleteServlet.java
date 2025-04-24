@@ -5,6 +5,7 @@
         import jakarta.servlet.http.HttpServlet;
         import jakarta.servlet.http.HttpServletRequest;
         import jakarta.servlet.http.HttpServletResponse;
+        import org.example.onlinemediclestore.Classes.Admin;
         import org.example.onlinemediclestore.Classes.Customer;
         import org.example.onlinemediclestore.Classes.Supplier;
         import org.example.onlinemediclestore.FileConfig.Config;
@@ -47,7 +48,21 @@
                             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Missing customer username.");
                         }
                         break;
-    
+                    case "admin":
+                        if( username != null && !username.trim().isEmpty()){
+                            GenericCRUD<Admin> adminGenericCRUD= new GenericCRUD<>(Admin.class,Config.ADMINS.getPath());
+                            adminGenericCRUD.delete(a -> a.getUsername().equals(username));
+                            System.out.println("admin deleted " + username);
+                            response.sendRedirect( request.getContextPath() +  "/admin-creation");
+                        }else {
+
+                            response.sendError(HttpServletResponse.SC_BAD_REQUEST , "missing username " );
+
+
+                        }
+                        break;
+
+
     
     
                     default:

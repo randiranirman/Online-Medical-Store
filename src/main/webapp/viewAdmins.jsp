@@ -63,6 +63,7 @@
                 <th class="px-4 py-2 text-left">Username</th>
                 <th class="px-4 py-2 text-left">Email</th>
                 <th class="px-4 py-2 text-left">Role</th>
+                <th class="px-4 py-2  text-left">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -75,6 +76,21 @@
                 <td class="px-4 py-2"><%= admin.getUsername() %></td>
                 <td class="px-4 py-2"><%= admin.getEmail() %></td>
                 <td class="px-4 py-2"><%= admin.getRole() %></td>
+                <td class="px-4 py-2">
+
+                    <form action="./delete" method="post" class="justify-center"   >
+                        <input type="hidden" name="username" value="<%= admin.getUsername() %>"/>
+
+                        <input type="hidden"  name="type" value="admin">
+
+                        <button class="px-2 py-2  text-white font-semibold rounded-lg bg-red-500" type="submit">Delete</button>
+
+
+                    </form>
+
+
+                </td>
+
             </tr>
             <%
                 }
