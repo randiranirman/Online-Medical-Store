@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.example.onlinemediclestore.FileConfig.Config;
 import org.example.onlinemediclestore.utils.PasswordHasher;
 import org.example.onlinemediclestore.Classes.Supplier;
 import org.example.onlinemediclestore.FileHandlers.SupplierFileHandler;
@@ -15,6 +16,7 @@ import java.util.List;
 @WebServlet("/supplier")
 public class AdminServlet extends HttpServlet {
     SupplierFileHandler handler = new SupplierFileHandler();
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

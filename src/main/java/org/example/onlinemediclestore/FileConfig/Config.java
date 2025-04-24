@@ -4,6 +4,7 @@ public enum Config {
 
     USERS("medicare/usersDetails.json"),
     TRANSACTIONS("medicare/transactions.json"),
+    ADMINS("medicare/admins.json"),
     ORDERS("medicare/orders.json"),
     SUPPLIERS("medicare/suppliers.json"),
     UPLOAD_DIR("medicare/uploads/"),

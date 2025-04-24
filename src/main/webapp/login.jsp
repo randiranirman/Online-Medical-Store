@@ -59,7 +59,7 @@
 
         <!-- Redirect to Sign Up -->
         <div class="text-center mt-4">
-            <p class="text-sm text-gray-600">Don't have an account? <a href="/signup" class="text-blue-600 font-semibold hover:underline">Sign Up</a></p>
+            <p class="text-sm text-gray-600">Don't have an account? <a href="./signup.jsp" class="text-blue-600 font-semibold hover:underline">Sign Up</a></p>
         </div>
     </form>
     <!-- Form Ends Here -->

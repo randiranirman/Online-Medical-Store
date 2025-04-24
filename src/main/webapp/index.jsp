@@ -28,7 +28,7 @@
   <div class="max-w-6xl mx-auto text-center">
     <h2 class="text-4xl font-bold text-blue-700 mb-4">Your Trusted Online Medical Store</h2>
     <p class="text-lg text-blue-900 mb-6">Fast delivery, genuine medicines, and 24/7 customer support.</p>
-    <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition">Shop Now</a>
+    <a href="./login.jsp" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition">Shop Now</a>
   </div>
 </section>
 

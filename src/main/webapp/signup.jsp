@@ -19,7 +19,7 @@
 <!-- Navbar -->
 <nav class="bg-white shadow-md">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        <h1 class="text-2xl font-bold text-blue-600">Medicare</h1>
+        <a href="./index.jsp" class="text-2xl font-bold text-blue-600">Medicare</a>
         <ul class="flex space-x-6 text-sm font-medium">
             <li><a href="index.jsp" class="hover:text-blue-600 transition">Home</a></li>
             <li><a href="#" class="hover:text-blue-600 transition">Medicines</a></li>
