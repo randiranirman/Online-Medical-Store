@@ -36,3 +36,7 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Ignore uploaded files (runtime-generated)
+src/main/webapp/uploads/
+!src/main/webapp/uploads/.keep
