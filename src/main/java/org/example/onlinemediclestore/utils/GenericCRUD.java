@@ -83,6 +83,11 @@ public class GenericCRUD<T > {
                 })
                 .findFirst();
     }
+    public void deleteById(java.util.function.Predicate<T> predicate) {
+        List<T> items = readAll();
+        items.removeIf(predicate); // Remove the item(s) matching the predicate
+        writeAll(items);
+    }
 
 
 }

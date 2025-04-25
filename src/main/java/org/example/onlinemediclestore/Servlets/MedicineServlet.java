@@ -12,6 +12,7 @@ import org.example.onlinemediclestore.Classes.Medicine;
 import org.example.onlinemediclestore.Classes.Supplier;
 import org.example.onlinemediclestore.FileConfig.Config;
 import org.example.onlinemediclestore.utils.GenericCRUD;
+import org.example.onlinemediclestore.utils.SortHelper;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -151,6 +152,7 @@ public class MedicineServlet extends HttpServlet {
 
             GenericCRUD<Medicine> medicineGenericCRUD= new GenericCRUD<>(Medicine.class, Config.MEDICINES.getPath());
             List<Medicine> medicineList= medicineGenericCRUD.readAll();
+            SortHelper.quickSortByPrice(medicineList,0, medicineList.size()-1);
             if ( medicineList == null || medicineList.isEmpty()){
                 request.setAttribute("listMessage", "No medicines in the list");
             }
