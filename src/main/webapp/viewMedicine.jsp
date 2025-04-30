@@ -122,6 +122,8 @@
                     <form action="./deleteMedicine" method="post" onsubmit="return confirm('Are you sure you want to delete this medicine?');">
                         <input type="hidden" name="medicineId" value="<%= med.getId() %>">
                         <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm">
+                            <input type="hidden"  name="type" value="medicine">
+                            <input type="hidden" name="medicineID" value="<%= med.getId() %>"/>
                             Delete
                         </button>
                     </form>

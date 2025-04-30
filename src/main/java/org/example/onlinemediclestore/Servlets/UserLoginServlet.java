@@ -38,6 +38,7 @@ public class UserLoginServlet extends HttpServlet {
                         response.sendRedirect(request.getContextPath() + "/admin.jsp");
                         break;
                     case "customer":
+
                         response.sendRedirect(request.getContextPath() + "/dashboard.jsp");
                         break;
                     default:

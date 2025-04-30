@@ -18,7 +18,30 @@ public class Order {
 
      }
 
+    public String getMedicineName() {
+        return medicineName;
+    }
+
+    public Medicine getMedicine() {
+        return medicine;
+    }
 
 
+    public int getQunatity() {
+        return qunatity;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+
+    //
 
 }
+

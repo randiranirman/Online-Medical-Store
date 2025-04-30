@@ -18,8 +18,10 @@
     
             @Override
             protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-                String type = request.getParameter("type");        //  "customer", "supplier"
+                String type = request.getParameter("type");        //  "customer", "supplier", "medicine"
                 String username = request.getParameter("username");
+
+
     
                 if (type == null || type.isEmpty()) {
                     response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Missing type parameter.");
@@ -61,6 +63,7 @@
 
                         }
                         break;
+
 
 
     
