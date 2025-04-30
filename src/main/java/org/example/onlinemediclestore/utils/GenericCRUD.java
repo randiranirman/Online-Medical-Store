@@ -83,6 +83,19 @@ public class GenericCRUD<T > {
                 })
                 .findFirst();
     }
+    public Optional<T> findOneById(String id) {
+        List<T> items = readAll();
+        return items.stream()
+                .filter(item -> {
+                    try {
+                        // Assumes your model (e.g., Medicine) has a method getId()
+                        return item.getClass().getMethod("getId").invoke(item).equals(id);
+                    } catch (Exception e) {
+                        return false;
+                    }
+                })
+                .findFirst();
+    }
     public void deleteById(java.util.function.Predicate<T> predicate) {
         List<T> items = readAll();
         items.removeIf(predicate); // Remove the item(s) matching the predicate

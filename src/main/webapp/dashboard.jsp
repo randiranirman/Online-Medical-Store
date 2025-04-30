@@ -39,7 +39,7 @@
                 <h3 class="text-lg font-semibold text-gray-800"><%= med.getName() %></h3>
                 <p class="text-sm text-gray-600"><%= med.getDescription() %></p>
                 <p class="text-blue-600 font-bold mt-2">₹<%= med.getPrice() %></p>
-                <a href="product.jsp?productId=<%= med.getId() %>" class="px-4 w-full rounded-lg py-2 mt-2 bg-blue-700 text-white">View Product</a>
+                <a href="${pageContext.request.contextPath}/showProductDetails?medicineId=<%= med.getId() %>" class="px-4 w-full rounded-lg py-2 mt-2 bg-blue-700 text-white">View Product</a>
             </div>
         </div>
         <%
