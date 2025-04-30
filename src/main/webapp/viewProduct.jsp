@@ -26,7 +26,7 @@
             <p class="text-gray-600 mb-4"><%= medicine.getDescription() %></p>
             <p class="text-xl font-bold text-indigo-600 mb-4">Price: $<%= medicine.getPrice() %></p>
 
-            <form action="placeOrder" method="post" class="space-y-4">
+            <form action="./orderProcessing" method="post" class="space-y-4">
                 <input type="hidden" name="medicineId" value="<%= medicine.getId() %>">
 
                 <label for="quantity" class="block font-medium text-gray-700">Quantity:</label>

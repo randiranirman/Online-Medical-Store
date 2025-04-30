@@ -72,4 +72,14 @@ public class Medicine {
     public String getDescription() {
         return description;
     }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+
 }
