@@ -119,7 +119,7 @@
                 <td class="px-4 py-3 border-b"><%= med.getQuantity() %></td>
                 <td class="px-4 py-3 border-b"><%= med.getSupplier() != null ? med.getSupplier().getUsername() : "N/A" %></td>
                 <td class="px-4 py-3 border-b">
-                    <form action="./deleteMedicine" method="post" onsubmit="return confirm('Are you sure you want to delete this medicine?');">
+                    <form action="./delete" method="post" onsubmit="return confirm('Are you sure you want to delete this medicine?');">
                         <input type="hidden" name="medicineId" value="<%= med.getId() %>">
                         <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm">
                             <input type="hidden"  name="type" value="medicine">
