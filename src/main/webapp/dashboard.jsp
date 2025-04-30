@@ -1,4 +1,6 @@
 <%@ page import="org.example.onlinemediclestore.Classes.User" %>
+<%@ page import="org.example.onlinemediclestore.Classes.Medicine" %>
+<%@ page import="java.util.List" %>
 <%
     User user = (User) session.getAttribute("user");
     if (user == null) {
@@ -25,18 +27,29 @@
     <h2 class="text-2xl font-semibold text-gray-800 mb-6">Featured Products</h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <!-- Product Card Example -->
+        <%
+            List<Medicine> medicines = (List<Medicine>) request.getAttribute("medicines");
+            if (medicines != null) {
+                for (Medicine med : medicines) {
+        %>
         <div class="bg-white rounded-2xl shadow hover:shadow-lg transition-all duration-300 overflow-hidden">
-            <img src="https://via.placeholder.com/300x200" alt="Product" class="w-full h-48 object-cover">
+            <img src="<%= request.getContextPath() + "/uploads/" + med.getImg_path() %>"
+                 alt="<%= med.getName() %>" class="w-full h-48 object-cover">
             <div class="p-4">
-                <h3 class="text-lg font-semibold text-gray-800">Paracetamol 500mg</h3>
-                <p class="text-gray-600 text-sm mb-2">Relieves pain and fever</p>
-                <p class="text-blue-600 font-bold mb-4">₹50</p>
-                <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">Add to Cart</button>
+                <h3 class="text-lg font-semibold text-gray-800"><%= med.getName() %></h3>
+                <p class="text-sm text-gray-600"><%= med.getDescription() %></p>
+                <p class="text-blue-600 font-bold mt-2">₹<%= med.getPrice() %></p>
+                <a href="product.jsp?productId=<%= med.getId() %>" class="px-4 w-full rounded-lg py-2 mt-2 bg-blue-700 text-white">View Product</a>
             </div>
         </div>
-
-        <!-- Copy and customize the product card above for more products -->
+        <%
+            }
+        } else {
+        %>
+        <p>No medicines found.</p>
+        <%
+            }
+        %>
     </div>
 </div>
 

@@ -39,7 +39,7 @@ public class UserLoginServlet extends HttpServlet {
                         break;
                     case "customer":
 
-                        response.sendRedirect(request.getContextPath() + "/dashboard.jsp");
+                        response.sendRedirect(request.getContextPath() + "/showProducts");
                         break;
                     default:
                         response.sendRedirect(request.getContextPath() + "/login.jsp?error=invalidRole");
