@@ -52,7 +52,7 @@ public class OrderProcessingServlet extends HttpServlet {
 
         }
         String address = request.getParameter("address");
-        address="thi is sht addres";
+
         System.out.println(address);
 
         if( address.isEmpty() || address.trim().isEmpty()){
@@ -85,6 +85,9 @@ public class OrderProcessingServlet extends HttpServlet {
         String status = "Pending";
         LocalDateTime orderDate = LocalDateTime.now();
         System.out.println("local date time ");
+        String fullName = request.getParameter("fullName");
+        String phoneNumber= request.getParameter("phone");
+
 
         // calculate the total price
         double totalPrice = medicine.getPrice() * quantity;

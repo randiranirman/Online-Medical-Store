@@ -62,7 +62,7 @@
                             response.sendRedirect( request.getContextPath() +  "/admin-creation");
                         }else {
 
-                            response.sendError(HttpServletResponse.SC_BAD_REQUEST , "missing username " );
+                            System.out.println("error ");
 
 
                         }

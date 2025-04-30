@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import org.example.onlinemediclestore.Classes.Customer;
 import org.example.onlinemediclestore.utils.PasswordHasher;
 import org.example.onlinemediclestore.Classes.User;
 import org.example.onlinemediclestore.FileHandlers.UserFileHandler;
@@ -42,12 +43,14 @@ public class    UserServlet extends HttpServlet {
             session.setAttribute("role", role);
 
             User user = new User(name, username,password, role,email);
-            session.setAttribute("user", user);
+            Customer customer = new Customer(user.getName(), user.getUsername(), user.getPassword(),
+                    "customer", user.getEmail());
+            session.setAttribute("user", customer);
             userFileHandler.saveUser(user);
 
 
             //redirect to the daashboard if the signup is successfull
-            response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/dashboard.jsp"));
+            response.sendRedirect(request.getContextPath() + "/showProducts");
 
 
         }catch(Exception e ){

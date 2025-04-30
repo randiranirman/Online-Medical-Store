@@ -3,6 +3,6 @@ package org.example.onlinemediclestore.Servlets;
 
 import jakarta.servlet.annotation.WebServlet;
 
-@WebServlet("orderConfirmation")
+@WebServlet("/orderConfirmation")
 public class OrderConfirmation {
 }
