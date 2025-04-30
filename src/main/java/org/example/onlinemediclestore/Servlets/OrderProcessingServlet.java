@@ -84,6 +84,7 @@ public class OrderProcessingServlet extends HttpServlet {
         String orderId = UUID.randomUUID().toString();
         String status = "Pending";
         LocalDateTime orderDate = LocalDateTime.now();
+        System.out.println("local date time ");
 
         // calculate the total price
         double totalPrice = medicine.getPrice() * quantity;
@@ -116,8 +117,10 @@ public class OrderProcessingServlet extends HttpServlet {
         medicineGenericCRUD.update(medicinePredicate, medicine);
         // set Order in session for confirmation page
         session.setAttribute("last order", order);
+        System.out.println("order processing done ");
         // redirect to the order confirmation page
         response.sendRedirect("orderConfirmation?orderId+" +  orderId);
+
 
 
 
