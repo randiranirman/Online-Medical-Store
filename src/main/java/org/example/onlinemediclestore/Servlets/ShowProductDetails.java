@@ -46,17 +46,19 @@ public class ShowProductDetails extends HttpServlet {
                 Medicine medicine= medicineOptional.get();
                 request.setAttribute("medicine",medicine);
                 System.out.println("medicine found");
-                request.getRequestDispatcher( "viewProduct.jsp").forward(request, response);
+                //request.getRequestDispatcher( "viewProduct.jsp").forward(request, response);
+
+                request.getRequestDispatcher( "viewproductnew.jsp").forward(request, response);
 
 
             }else{
                 request.setAttribute("error", "Medicine not found");
-                request.getRequestDispatcher("viewProduct.jsp").forward(request, response);
+                request.getRequestDispatcher("viewproductnew.jsp").forward(request, response);
             }
         }catch (Exception e){
             e.printStackTrace();
             request.setAttribute("error", "System error " +  e.getMessage());
-            request.getRequestDispatcher("viewProduct.jsp").forward(request, response);
+            request.getRequestDispatcher("viewproductnew.jsp").forward(request, response);
 
         }
 
