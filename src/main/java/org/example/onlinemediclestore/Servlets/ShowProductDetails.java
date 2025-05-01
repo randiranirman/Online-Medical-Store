@@ -46,7 +46,7 @@ public class ShowProductDetails extends HttpServlet {
                 Medicine medicine= medicineOptional.get();
                 request.setAttribute("medicine",medicine);
                 System.out.println("medicine found");
-                //request.getRequestDispatcher( "viewProduct.jsp").forward(request, response);
+
 
                 request.getRequestDispatcher( "viewproductnew.jsp").forward(request, response);
 

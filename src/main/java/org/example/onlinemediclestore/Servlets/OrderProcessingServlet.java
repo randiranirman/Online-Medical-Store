@@ -34,7 +34,7 @@ public class OrderProcessingServlet extends HttpServlet {
 
         if( customer == null){
             System.out.println("customer is null");
-            response.sendRedirect("login.jsp?redirect=viewProduct");
+            response.sendRedirect("login.jsp?redirect=viewproductnew");
 
             return;
         }
@@ -58,6 +58,7 @@ public class OrderProcessingServlet extends HttpServlet {
         if( address.isEmpty() || address.trim().isEmpty()){
 
             request.setAttribute("error", "shipping address is required");
+            
             request.getRequestDispatcher("viewProduct?id=" + medicineId).forward(request, response);
             return;
         }
@@ -101,7 +102,9 @@ public class OrderProcessingServlet extends HttpServlet {
                 address,
                 totalPrice,
                 status,
-                orderDate
+                orderDate,
+                fullName,
+                phoneNumber
         );
         // save order
         GenericCRUD<Order> orderGenericCRUD= new GenericCRUD<>(Order.class, Config.ORDERS.getPath());
@@ -110,6 +113,7 @@ public class OrderProcessingServlet extends HttpServlet {
         // update medicine quantity
         int newQuantity =  medicine.getQuantity() - quantity;
         medicine.setQuantity(newQuantity);
+
         if (newQuantity == 0) {
             medicine.setAvailable(false);
         }

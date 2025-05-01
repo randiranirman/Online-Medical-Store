@@ -14,12 +14,17 @@ public class Order implements Serializable {
     private String status;
     private LocalDateTime orderDate;
 
+    private String  fullName;
+    private String phoneNumber;
+
+
+
     // Default constructor required for serialization
     public Order() {
     }
 
     public Order(String id, String medicineName, Customer customer, Medicine medicine,
-                 int quantity, String address, double totalPrice, String status, LocalDateTime orderDate) {
+                 int quantity, String address, double totalPrice, String status, LocalDateTime orderDate,String fullName, String phoneNumber) {
         this.id = id;
         this.medicineName = medicineName;
         this.customer = customer;
@@ -29,6 +34,9 @@ public class Order implements Serializable {
         this.totalPrice = totalPrice;
         this.status = status;
         this.orderDate = orderDate;
+        this.fullName= fullName;
+        this.phoneNumber= phoneNumber;
+
     }
 
     // Simpler constructor matching your original
@@ -49,6 +57,14 @@ public class Order implements Serializable {
 
     public String getAddress() {
         return address;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     public void setAddress(String address) {
@@ -123,6 +139,8 @@ public class Order implements Serializable {
                 ", totalPrice=" + totalPrice +
                 ", status='" + status + '\'' +
                 ", orderDate=" + orderDate +
+                ", fullName=" + fullName +
+                ", phoneNumber=" + phoneNumber   +
                 '}';
     }
 }
