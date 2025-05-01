@@ -16,7 +16,7 @@
             <a href="${pageContext.request.contextPath}/supplier" class="text-white hover:underline">View Suppliers</a>
             <a href="${pageContext.request.contextPath}/user" class="text-white hover:underline">View Users</a>
             <a href="${pageContext.request.contextPath}/addMedicine" class="text-white hover:underline">View Medicines</a>
-            <a href="viewOrders.jsp" class="text-white hover:underline">View Orders</a>
+            <a href="${pageContext.request.contextPath}/viewOrder" class="text-white hover:underline">View Orders</a>
 
             <a href="${pageContext.request.contextPath}/admin-creation" class="text-white hover:underline">View Admins</a>
         </div>
