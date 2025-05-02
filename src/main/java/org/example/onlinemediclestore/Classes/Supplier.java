@@ -39,4 +39,16 @@ public class Supplier extends User {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public String toString() {
+        return "Supplier{" +
+                "id='" + id + '\'' +
+                ", Name='" + name + '\'' +
+                ", companyName=" + companyName +
+                ", address='" + address + '\'' +
+                ", medicines=" + medicineList +
+                ", address=" + address +
+
+                '}';
+    }
 }

@@ -49,4 +49,16 @@ public class User {
     public String getRole() {
         return role;
     }
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+
+                ", name=" + name +
+                ", role='" + role + '\'' +
+                ", password=" + password +
+
+                '}';
+    }
 }

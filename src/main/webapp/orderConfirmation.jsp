@@ -89,7 +89,7 @@
         </div>
 
         <div class="flex justify-center mt-8">
-            <a href="viewMedicine" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-md transition duration-200">
+            <a href=".//showProducts" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-md transition duration-200">
                 Continue Shopping
             </a>
         </div>

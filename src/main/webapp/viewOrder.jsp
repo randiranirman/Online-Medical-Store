@@ -68,9 +68,17 @@
                             <a href="editOrder?id=<%= order.getId() %>" class="text-indigo-600 hover:text-indigo-900">
                                 <i class="fas fa-edit"></i> Edit
                             </a>
-                            <button onclick="confirmDelete('<%= order.getId() %>')" class="text-red-600 hover:text-red-900">
-                                <i class="fas fa-trash-alt"></i> Delete
-                            </button>
+
+
+
+                            <form action="./delete" method="post" onsubmit="return confirm('Are you sure you want to delete this order?');">
+                                <input type="hidden" name="orderId" value="<%= order.getId() %>">
+                                <button type="submit"  class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm">
+                                    <input type="hidden"  name="type" value="order">
+                                    <input type="hidden" name="orderID" value="<%= order.getId() %>"/>
+                                    <i class="fas fa-trash-alt">Delete</i>
+                                </button>
+                            </form>
                         </div>
                     </td>
                 </tr>

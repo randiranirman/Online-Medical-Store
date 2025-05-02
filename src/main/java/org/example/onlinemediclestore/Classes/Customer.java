@@ -10,4 +10,6 @@ public class Customer extends  User{
     public Customer(String updatedUsername, String name, String email) {
         super(updatedUsername, name,null,"customer", email);
     }
+
+
 }

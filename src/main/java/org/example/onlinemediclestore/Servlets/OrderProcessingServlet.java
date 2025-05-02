@@ -12,6 +12,7 @@ import org.example.onlinemediclestore.Classes.Medicine;
 import org.example.onlinemediclestore.Classes.Order;
 import org.example.onlinemediclestore.FileConfig.Config;
 import org.example.onlinemediclestore.utils.GenericCRUD;
+import org.example.onlinemediclestore.utils.QueueHelper;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -25,6 +26,7 @@ import java.util.function.Predicate;
 public class OrderProcessingServlet extends HttpServlet {
 
     private  final  String FILEPATH = Config.ORDERS.getPath();
+    private static final QueueHelper helper = new QueueHelper();
 
 
     protected  void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
@@ -125,6 +127,9 @@ public class OrderProcessingServlet extends HttpServlet {
         // set Order in session for confirmation page
         session.setAttribute("last order", order);
         System.out.println("order processing done ");
+        synchronized (helper){
+            helper.enqueue(order);
+        }
         // redirect to the order confirmation page
         response.sendRedirect("orderConfirmation?orderId+" +  orderId);
 

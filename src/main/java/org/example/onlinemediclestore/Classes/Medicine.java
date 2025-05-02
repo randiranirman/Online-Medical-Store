@@ -81,5 +81,17 @@ public class Medicine {
         this.quantity = quantity;
     }
 
+    public String toString() {
+        return "Medicine{" +
+                "id='" + id + '\'' +
+                ", medicineName='" + name + '\'' +
+                ", quantity=" + quantity +
+                ", supplier='" + supplier + '\'' +
+                ", description=" + description +
+                ", isavailbale=" + isAvailable +
+                ", price=" + price +
+                ", imgPath='" + img_path + '\'' +
 
+                '}';
+    }
 }

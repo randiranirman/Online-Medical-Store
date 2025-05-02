@@ -6,10 +6,7 @@
         import jakarta.servlet.http.HttpServlet;
         import jakarta.servlet.http.HttpServletRequest;
         import jakarta.servlet.http.HttpServletResponse;
-        import org.example.onlinemediclestore.Classes.Admin;
-        import org.example.onlinemediclestore.Classes.Customer;
-        import org.example.onlinemediclestore.Classes.Medicine;
-        import org.example.onlinemediclestore.Classes.Supplier;
+        import org.example.onlinemediclestore.Classes.*;
         import org.example.onlinemediclestore.FileConfig.Config;
         import org.example.onlinemediclestore.utils.GenericCRUD;
 
@@ -20,9 +17,11 @@
 
             @Override
             protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-                String type = request.getParameter("type");        //  "customer", "supplier", "medicine"
+                String type = request.getParameter("type");        //  "customer", "supplier", "medicine", "order "
                 String username = request.getParameter("username");
                 String medicineId  = request.getParameter("medicineId");
+                String orderID =  request.getParameter("orderId");
+
 
 
 
@@ -77,7 +76,15 @@
                         }
                     
                         break;
-
+                    case "order":
+                        if( orderID != null){
+                            GenericCRUD<Order> orderGenericCRUD= new GenericCRUD<>(Order.class, Config.ORDERS.getPath());
+                            orderGenericCRUD.deleteById( o -> o.getId().equals(orderID));
+                            System.out.println("order deleted ");
+                            response.sendRedirect(request.getContextPath() + "/viewOrder");
+                        }else{
+                            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "invalid id ");
+                        }
 
 
 
