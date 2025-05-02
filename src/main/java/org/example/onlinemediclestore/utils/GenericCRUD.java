@@ -95,7 +95,7 @@ public class GenericCRUD<T > {
         return items.stream()
                 .filter(item -> {
                     try {
-                        // Assumes your model (e.g., Medicine) has a method getId()
+                        // getting  the model by giving id
                         return item.getClass().getMethod("getId").invoke(item).equals(id);
                     } catch (Exception e) {
                         return false;

@@ -57,6 +57,16 @@
             <input type="number" name="quantity" placeholder="Enter the quantity" required
                    class="w-full border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
         </div>
+        <div>
+            <label class="block mb-1 font-medium text-gray-700">Medicine Type</label>
+            <select name="type" required
+                    class="w-full border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <option value="">-- Select Medicine Type --</option>
+                <option  value="OTCMedicine">OTC Medicine</option>
+                <option value="prescriptionMedicine">Prescription Medicine</option>
+            </select>
+        </div>
+
 
         <div>
             <label class="block mb-1 font-medium text-gray-700">Upload Image</label>

@@ -9,6 +9,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 import org.example.onlinemediclestore.Classes.Medicine;
+import org.example.onlinemediclestore.Classes.OTCMedicine;
+import org.example.onlinemediclestore.Classes.PrescriptionMedicine;
 import org.example.onlinemediclestore.Classes.Supplier;
 import org.example.onlinemediclestore.FileConfig.Config;
 import org.example.onlinemediclestore.utils.GenericCRUD;
@@ -46,6 +48,8 @@ public class MedicineServlet extends HttpServlet {
         String description = request.getParameter("description");
         double price = Double.parseDouble(request.getParameter("price"));
         int quantity = Integer.parseInt(request.getParameter("quantity"));
+        String type = request.getParameter("type");
+
 
 
         boolean isAvailable  = Boolean.parseBoolean(request.getParameter("isAvailable"));
@@ -95,11 +99,20 @@ public class MedicineServlet extends HttpServlet {
 
         if (supplierOptional.isPresent()) {
             Supplier supplier = supplierOptional.get();  // safely unwrap
-              Medicine medicine = new Medicine(name, supplier, id, description, price, quantity, fileName, isAvailable );
             GenericCRUD<Medicine> medicines = new GenericCRUD<>(Medicine.class,Config.MEDICINES.getPath());
+              Medicine medicine = new Medicine(name, supplier, id, description, price, quantity, fileName, isAvailable );
+              if( type.equals("OTCMedicine")) {
+                 Medicine otcMedicine = new OTCMedicine(name,supplier ,id,description,price,quantity,fileName ,isAvailable);
+                 medicines.add(otcMedicine);
+
+              }else if(type.equals("prescriptionMedicine")){
+                        Medicine prescriptionMedicine = new PrescriptionMedicine(name, supplier,id,description,price,quantity,fileName,isAvailable);
+                        medicines.add(prescriptionMedicine);
+              }
+
             System.out.println("successfully added medicine ");
 
-            medicines.add(medicine);
+
 
 
         } else {
