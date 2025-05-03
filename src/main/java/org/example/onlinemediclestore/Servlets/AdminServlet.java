@@ -12,6 +12,7 @@ import org.example.onlinemediclestore.FileHandlers.SupplierFileHandler;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 @WebServlet("/supplier")
 public class AdminServlet extends HttpServlet {
@@ -26,9 +27,10 @@ public class AdminServlet extends HttpServlet {
         String email = request.getParameter("email");
         String companyName = request.getParameter("companyName");
         String address = request.getParameter("address");
+        String id = UUID.randomUUID().toString();
 
 
-        Supplier supplier = new Supplier(name, username, password, email, companyName, address);
+        Supplier supplier = new Supplier(id,name, username, password, email, companyName, address);
         handler.writeSupplierToFile(supplier); // save new supplier
 
 

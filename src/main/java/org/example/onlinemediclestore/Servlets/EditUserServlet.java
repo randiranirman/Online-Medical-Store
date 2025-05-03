@@ -24,6 +24,8 @@ public class EditUserServlet extends HttpServlet {
         String username  = request.getParameter("username");
         String updatedUsername = request.getParameter("updatedUsername");
         String email = request.getParameter("updatedEmail");
+        String id  = request.getParameter("id");
+
 
 
         String type = request.getParameter("type");
@@ -41,7 +43,7 @@ public class EditUserServlet extends HttpServlet {
             String address = request.getParameter("updatedAddress");
 
             GenericCRUD<Supplier> supplierGenericCRUD= new GenericCRUD<>(Supplier.class, Config.SUPPLIERS.getPath());
-            Supplier updatedSupplier = new Supplier(updatedUsername,name,email, companyName, address);
+            Supplier updatedSupplier = new Supplier(id,updatedUsername,name,email, companyName, address);
             // checking the username is valid
             supplierGenericCRUD.update( s -> s.getUsername().equals(username), updatedSupplier);
             // direct to the viewSupplier.jsp
@@ -56,7 +58,7 @@ public class EditUserServlet extends HttpServlet {
 
         }else if( type.equals("customer")){
             GenericCRUD<Customer> customerGenericCRUD= new GenericCRUD<>(Customer.class, Config.USERS.getPath());
-            Customer updatedCustomer = new Customer(updatedUsername, name , email);
+            Customer updatedCustomer = new Customer(id,updatedUsername, name , email);
             customerGenericCRUD.update(c -> c.getUsername().equals(username), updatedCustomer);
             response.sendRedirect(request.getContextPath() + "/editUser");
 

@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.example.onlinemediclestore.Classes.Medicine;
 import org.example.onlinemediclestore.FileConfig.Config;
 import org.example.onlinemediclestore.utils.GenericCRUD;
@@ -32,7 +33,8 @@ public class ShowProductServlet extends HttpServlet {
 
      GenericCRUD<Medicine> medicineGenericCRUD= new GenericCRUD<>(Medicine.class,Config.MEDICINES.getPath());
         List<Medicine> medicineList= medicineGenericCRUD.readAll();
-        request.setAttribute("medicines", medicineList);
+        HttpSession  session= request.getSession(false);
+                request.setAttribute("medicines", medicineList);
         request.getRequestDispatcher("dashboard.jsp").forward(request, response);
 
 

@@ -19,7 +19,12 @@
 <!-- Navbar -->
 <nav class="bg-white shadow-md px-6 py-4 flex justify-between items-center">
     <a href="./index.jsp" class="text-xl font-bold text-blue-600">Medicare Dashboard</a>
-    <span class="text-gray-700">Hi, <%= user.getUsername() %> 👋</span>
+
+    <div class="justify-between items-center">
+
+        <a href="${pageContext.request.contextPath}//viewCustomerOrder" class="text-md cursor-pointer  font-semibold  text-blue-600 px-2 ">View Orders</a>
+        <span class="text-gray-700">Hi, <%= user.getUsername() %> 👋</span>
+    </div>
 </nav>
 
 <!-- Products Section -->

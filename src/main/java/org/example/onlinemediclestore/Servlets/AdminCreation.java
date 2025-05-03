@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 @WebServlet("/admin-creation")
@@ -27,6 +28,7 @@ public class AdminCreation  extends HttpServlet  {
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String rawPassword = request.getParameter("password");
+        String id = UUID.randomUUID().toString();
 
         // Validate inputs first
         if (name == null || name.isBlank() ||
@@ -52,7 +54,7 @@ public class AdminCreation  extends HttpServlet  {
         // Hash password and create admin
         String password = PasswordHasher.hashPassword(rawPassword);
         String role = "admin";
-        Admin admin = new Admin(name, username, password, role, email);
+        Admin admin = new Admin(id,name, username, password, role, email);
 
         // Add admin to database
         adminCRUD.add(admin);

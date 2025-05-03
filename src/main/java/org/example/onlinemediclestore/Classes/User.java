@@ -11,13 +11,24 @@ public class User {
 
     protected  String name;
     private String role;
+    private  String userID;
 
-    public User(String name, String username, String password, String role,String email) {
+    public User(String userID,String name, String username, String password, String role,String email) {
+        this.userID= userID;
         this.name= name;
         this.username= username;
         this.password= password;
         this.role= role;
         this.email= email;
+    }
+
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public String getUsername() {

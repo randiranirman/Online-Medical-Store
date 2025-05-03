@@ -16,6 +16,8 @@ public class Order implements Serializable {
 
     private String  fullName;
     private String phoneNumber;
+    private String userID;
+
 
 
 
@@ -23,7 +25,7 @@ public class Order implements Serializable {
     public Order() {
     }
 
-    public Order(String id, String medicineName, Customer customer, Medicine medicine,
+    public Order(String userID,String id, String medicineName, Customer customer, Medicine medicine,
                  int quantity, String address, double totalPrice, String status, LocalDateTime orderDate,String fullName, String phoneNumber) {
         this.id = id;
         this.medicineName = medicineName;
@@ -36,6 +38,7 @@ public class Order implements Serializable {
         this.orderDate = orderDate;
         this.fullName= fullName;
         this.phoneNumber= phoneNumber;
+        this.userID= userID;
 
     }
 
@@ -53,6 +56,14 @@ public class Order implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public String getAddress() {
@@ -139,6 +150,8 @@ public class Order implements Serializable {
                 ", totalPrice=" + totalPrice +
                 ", status='" + status + '\'' +
                 ", orderDate=" + orderDate +
+                ", customerID=" + userID +
+
                 ", fullName=" + fullName +
                 ", phoneNumber=" + phoneNumber   +
                 '}';

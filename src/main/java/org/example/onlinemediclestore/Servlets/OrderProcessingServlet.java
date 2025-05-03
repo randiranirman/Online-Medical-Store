@@ -96,6 +96,7 @@ public class OrderProcessingServlet extends HttpServlet {
         double totalPrice = medicine.getPrice() * quantity;
         // creating a new order
         Order order= new Order(
+                customer.getUserID(),
                 orderId,
                 medicine.getName(),
                 customer,

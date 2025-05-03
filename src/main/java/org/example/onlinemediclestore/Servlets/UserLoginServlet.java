@@ -38,7 +38,7 @@ public class UserLoginServlet extends HttpServlet {
                 // Create the appropriate object based on role
                 if (user.getRole().equals("customer")) {
                     // Create a Customer object before storing in session
-                    Customer customer = new Customer(user.getName(), user.getUsername(), user.getPassword(),
+                    Customer customer = new Customer(user.getUserID(),user.getName(), user.getUsername(), user.getPassword(),
                             "customer", user.getEmail());
                     session.setAttribute("user", customer);
                 } else {
@@ -53,6 +53,7 @@ public class UserLoginServlet extends HttpServlet {
                         break;
                     case "customer":
                         response.sendRedirect(request.getContextPath() + "/showProducts");
+
                         break;
                     default:
                         response.sendRedirect(request.getContextPath() + "/login.jsp?error=invalidRole");
