@@ -15,6 +15,7 @@ public class Supplier extends User {
         this.companyName = companyName;
         this.address = address;
 
+
     }
 
     // Constructor for updating supplier (assuming password and role remain unchanged)

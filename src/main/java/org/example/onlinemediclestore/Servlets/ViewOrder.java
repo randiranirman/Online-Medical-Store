@@ -19,6 +19,8 @@ public class ViewOrder extends HttpServlet {
     private final String ORDER_FILEPATH = Config.ORDERS.getPath();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        doGet(request, response);
+
 
     }
 

@@ -3,6 +3,8 @@ package org.example.onlinemediclestore.Classes;
 public class Medicine {
     private String name ;
     private Supplier supplier;
+    private String supplierID;
+
     private String id ;
     private Double price ;
     private String description;
@@ -12,7 +14,7 @@ public class Medicine {
 
     private boolean isAvailable;
 
-    public Medicine(String name ,  Supplier supplier, String id,String description,double price, int quantity,String imgPath, boolean isAvailable ){
+    public Medicine(String name ,Supplier supplier, String id,String description,double price, int quantity,String imgPath, boolean isAvailable ){
         this.name  = name;
         this.supplier= supplier;
         this.id= id;
@@ -21,6 +23,9 @@ public class Medicine {
         this.price= price;
         this.quantity= quantity;
         this.isAvailable= isAvailable;
+
+
+
     }
 
     public Medicine(String name ,Supplier supplier, String id){

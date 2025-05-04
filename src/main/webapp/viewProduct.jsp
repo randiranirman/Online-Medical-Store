@@ -39,6 +39,8 @@
                     </select>
                 </div>
 
+
+
                 <!-- Simple Address Section -->
                 <div class="mt-6 space-y-3">
                     <h3 class="text-lg font-medium text-gray-800">Delivery Address</h3>
@@ -67,6 +69,42 @@
                     Place Order
                 </button>
             </form>
+
+            <!-- Review Form -->
+            <div class="mt-8 border-t pt-6">
+                <h3 class="text-xl font-bold text-indigo-700 mb-4">Leave a Review</h3>
+                <form action="./addProductReview" method="post" class="space-y-4">
+                    <!-- Hidden fields -->
+                    <input type="hidden" name="medicineId" value="<%= medicine.getId() %>">
+                    <input type="hidden" name="medicineName" value="<%= medicine.getName() %>">
+                    <input type="hidden" name="userId" value="<%= session.getAttribute("user") %>">
+                    <input type="hidden" name="userName" value="<%= session.getAttribute("userName") %>">
+
+                    <div>
+                        <label for="rating" class="block text-gray-700 font-medium">Rating</label>
+                        <select id="rating" name="rating" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                            <option value="">-- Select a rating --</option>
+                            <% for (int i = 1; i <= 5; i++) { %>
+                            <option value="<%= i %>"><%= i %> Star<%= (i > 1) ? "s" : "" %></option>
+                            <% } %>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="comments" class="block text-gray-700 font-medium">Comments</label>
+                        <textarea id="comments" name="comments" rows="4" required
+                                  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                                  placeholder="Write your experience..."></textarea>
+                    </div>
+
+                    <div>
+                        <button type="submit"
+                                class="bg-indigo-600 text-white px-6 py-2 rounded-md hover:bg-indigo-700 transition">
+                            Submit Review
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 

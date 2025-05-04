@@ -42,6 +42,8 @@ public class MedicineServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
 
+
+
         //get FORM fields
         String name  = request.getParameter("name");
         String supplierUsername = request.getParameter("supplierName");
@@ -49,6 +51,14 @@ public class MedicineServlet extends HttpServlet {
         double price = Double.parseDouble(request.getParameter("price"));
         int quantity = Integer.parseInt(request.getParameter("quantity"));
         String type = request.getParameter("type");
+
+
+        // getting the suppier from  the name
+        GenericCRUD<Supplier> supplierGenericCRUD= new GenericCRUD<>(Supplier.class, Config.SUPPLIERS.getPath())
+;
+
+
+
 
 
 
@@ -119,7 +129,8 @@ public class MedicineServlet extends HttpServlet {
             // Handle the case where the supplier was not found
             System.out.println("Supplier not found with username: " + supplierUsername);
             // Optionally throw exception or return early
-             request.getRequestDispatcher("viewMedicine.jsp").forward(request, response);
+            request.setAttribute("error","supplier not found");
+             request.getRequestDispatcher("/addMedicine").forward(request, response);
 
         }
 

@@ -9,7 +9,9 @@ public enum Config {
     ORDERS("medicare/orders.json"),
     SUPPLIERS("medicare/suppliers.json"),
     UPLOAD_DIR("C:\\Users\\binad\\Documents\\SLIT-projects\\Online-Medicle-Store\\src\\main\\webapp\\uploads\\"),
-    MEDICINES("medicare/medicines.json");
+    MEDICINES("medicare/medicines.json"),
+    VERIFIED_REVIEWS_FILE("medicare/verifiedReviews.json");
+
 
     private final String path;
 

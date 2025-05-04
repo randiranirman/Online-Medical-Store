@@ -1,54 +1,52 @@
 package org.example.onlinemediclestore.Classes;
 
-public class VerifiedReview  extends  Review{
+import java.time.LocalDateTime;
 
-
-    private String verifiedByUserId;
-    private String verificationDate;
-    private String  verificationNotes;
-
+public class VerifiedReview extends Review {
+    private LocalDateTime verificationDate;
+    private String verifiedBy; // admin ID
 
     public VerifiedReview() {
         super();
-        this.setVerified(true);
+        setVerified(true);
+        this.verificationDate = LocalDateTime.now();
     }
 
-    public VerifiedReview(String id, String medicineId, String medicineName, String userId, String userName,
-                          int rating, String comments, String verifiedByUserId,
-                          String verificationDate, String verificationNotes) {
-        super(id, medicineId, medicineName, userId, userName, rating, comments);
-        this.setVerified(true);
-        this.verifiedByUserId = verifiedByUserId;
-        this.verificationDate = verificationDate;
-        this.verificationNotes = verificationNotes;
-    }
-    public String getVerifiedByUserId() {
-        return verifiedByUserId;
+    public VerifiedReview(String id, String userId, String productId, String content, int rating, String verifiedBy) {
+        super(id, userId, productId, content, rating);
+        setVerified(true);
+        this.verificationDate = LocalDateTime.now();
+        this.verifiedBy = verifiedBy;
     }
 
-    public void setVerifiedByUserId(String verifiedByUserId) {
-        this.verifiedByUserId = verifiedByUserId;
+    // This can be used to create a verified review from a base review
+    public static VerifiedReview fromReview(Review review, String adminId) {
+        VerifiedReview verifiedReview = new VerifiedReview();
+        verifiedReview.setId(review.getId());
+        verifiedReview.setUserId(review.getUserId());
+        verifiedReview.setProductId(review.getProductId());
+        verifiedReview.setContent(review.getContent());
+        verifiedReview.setRating(review.getRating());
+        verifiedReview.setDateCreated(review.getDateCreated());
+        verifiedReview.setVerified(true);
+        verifiedReview.setVerificationDate(LocalDateTime.now());
+        verifiedReview.setVerifiedBy(adminId);
+        return verifiedReview;
     }
 
-    public String getVerificationDate() {
+    public LocalDateTime getVerificationDate() {
         return verificationDate;
     }
 
-    public void setVerificationDate(String verificationDate) {
+    public void setVerificationDate(LocalDateTime verificationDate) {
         this.verificationDate = verificationDate;
     }
 
-    public String getVerificationNotes() {
-        return verificationNotes;
+    public String getVerifiedBy() {
+        return verifiedBy;
     }
 
-    public void setVerificationNotes(String verificationNotes) {
-        this.verificationNotes = verificationNotes;
-    }
-
-    // Overridden display method (Polymorphism)
-    @Override
-    public String display() {
-        return "VERIFIED: " + super.display() + " (Verified by Admin)";
+    public void setVerifiedBy(String verifiedBy) {
+        this.verifiedBy = verifiedBy;
     }
 }

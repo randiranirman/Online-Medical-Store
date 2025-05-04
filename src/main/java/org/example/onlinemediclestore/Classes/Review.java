@@ -3,44 +3,30 @@ package org.example.onlinemediclestore.Classes;
 import java.time.LocalDateTime;
 
 public class Review {
-
-
-    private String id ;
-    private String medicineId;
-    private String username;
-    private String comments;
-    private int rating;
-
-    private LocalDateTime reviewDate;
-    private String medicineName;
-    public Review() {
-        this.reviewDate = LocalDateTime.now();
-    }
-
-    private String userID ;
-    
-
-
+    private String id;
+    private String userId;
+    private String productId;
+    private String content;
+    private int rating; // 1-5 stars
+    private LocalDateTime dateCreated;
     private boolean isVerified;
 
-    public Review(String id , String medicineId,String medicineName,String userID , String username,int rating, String comments){
-
-
-        this.id= id;
-        this.medicineId= medicineId;
-        this.isVerified=  false;
-        this.rating= rating;
-        this.userID=userID;
-        this.medicineName =medicineName;
-        this.comments= comments;
-        this.reviewDate= LocalDateTime.now();
-        this.username= username;
-
-
+    public Review() {
+        this.dateCreated = LocalDateTime.now();
+        this.isVerified = false;
     }
 
+    public Review(String id, String userId, String productId, String content, int rating) {
+        this.id = id;
+        this.userId = userId;
+        this.productId = productId;
+        this.content = content;
+        this.rating = rating;
+        this.dateCreated = LocalDateTime.now();
+        this.isVerified = false;
+    }
 
-
+    // Getters and Setters
     public String getId() {
         return id;
     }
@@ -49,61 +35,51 @@ public class Review {
         this.id = id;
     }
 
-    public String getMedicineName() {
-        return medicineName;
+    public String getUserId() {
+        return userId;
     }
 
-    public String getMedicineId() {
-        return medicineId;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-
-    public void setUsername(String username) {
-        this.username = username;
+    public String getProductId() {
+        return productId;
     }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 
-    public String getUserID() {
-        return userID;
+    public String getContent() {
+        return content;
     }
 
-    public String getUsername() {
-        return username;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public int getRating() {
         return rating;
     }
 
-    public void setVerified(boolean verified) {
-        isVerified = verified;
-    }
-
-
     public void setRating(int rating) {
         this.rating = rating;
     }
 
-    public String getComments() {
-        return comments;
+    public LocalDateTime getDateCreated() {
+        return dateCreated;
     }
 
-
-
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
-    // display method will be overrittten in chilc classses
-    public String display() {
-        return "Review for " + medicineName + " by " + username + ": " + rating + "/5 stars";
+    public void setDateCreated(LocalDateTime dateCreated) {
+        this.dateCreated = dateCreated;
     }
 
+    public boolean isVerified() {
+        return isVerified;
+    }
 
-
-
-
-
+    public void setVerified(boolean verified) {
+        isVerified = verified;
+    }
 }
