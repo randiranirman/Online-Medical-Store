@@ -12,6 +12,8 @@
 </head>
 <body>
 
+ <h1 class="text-2xl font-semibold px-2 py-4 bg-red-500">  this is the supplier page </h1>
+
 
 </body>
 </html>

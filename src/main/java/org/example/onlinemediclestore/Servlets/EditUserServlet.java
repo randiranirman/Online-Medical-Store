@@ -65,6 +65,7 @@ public class EditUserServlet extends HttpServlet {
 
         }else{
            response.sendError(HttpServletResponse.SC_BAD_REQUEST,"invalid type value");
+            System.out.println("this functionality is working ");
         }
 
 

@@ -21,6 +21,8 @@
                 String username = request.getParameter("username");
                 String medicineId  = request.getParameter("medicineId");
                 String orderID =  request.getParameter("orderId");
+                String reviewID = request.getParameter("reviewId");
+
 
 
 
@@ -82,6 +84,18 @@
                             orderGenericCRUD.deleteById( o -> o.getId().equals(orderID));
                             System.out.println("order deleted ");
                             response.sendRedirect(request.getContextPath() + "/viewOrder");
+                        }else{
+                            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "invalid id ");
+                        }
+                        break;
+
+                    case "review":
+                        if( reviewID != null){
+                            GenericCRUD<Review> orderGenericCRUD= new GenericCRUD<>(Review.class, Config.REVIEWS.getPath());
+                            orderGenericCRUD.deleteById( o -> o.getId().equals(reviewID));
+
+                            System.out.println("review  deleted ");
+                            response.sendRedirect(request.getContextPath() + "/getPendingReviews");
                         }else{
                             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "invalid id ");
                         }
