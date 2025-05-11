@@ -154,6 +154,8 @@
     </div>
 </div>
 
+
+
 <!-- Footer -->
 <footer class="mt-16 bg-white shadow-inner py-4 text-center text-gray-500 text-sm">
     &copy; 2025 Medicare. All rights reserved.

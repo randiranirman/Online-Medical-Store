@@ -24,6 +24,7 @@ public class Review {
         this.rating = rating;
         this.dateCreated = LocalDateTime.now();
         this.isVerified = false;
+
     }
 
     // Getters and Setters
@@ -82,4 +83,8 @@ public class Review {
     public void setVerified(boolean verified) {
         isVerified = verified;
     }
+
+
+
+
 }

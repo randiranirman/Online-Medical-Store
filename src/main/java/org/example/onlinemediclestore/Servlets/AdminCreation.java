@@ -29,7 +29,7 @@ public class AdminCreation  extends HttpServlet  {
         String email = request.getParameter("email");
         String rawPassword = request.getParameter("password");
         String id = UUID.randomUUID().toString();
-
+        System.out.println("admin created");
         // Validate inputs first
         if (name == null || name.isBlank() ||
                 username == null || username.isEmpty() ||

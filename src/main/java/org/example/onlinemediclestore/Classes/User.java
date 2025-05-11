@@ -2,6 +2,13 @@ package org.example.onlinemediclestore.Classes;
 
 public class User {
 
+
+
+
+
+
+
+
     private   String username;
     private
     String password;

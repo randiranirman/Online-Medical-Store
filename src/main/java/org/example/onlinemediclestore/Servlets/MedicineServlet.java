@@ -76,6 +76,7 @@ public class MedicineServlet extends HttpServlet {
         //get upload file
         Part filePart = request.getPart("image");
         String fileName = getFileName(filePart);
+        System.out.println(fileName);
         String id = UUID.randomUUID().toString();
 
 
