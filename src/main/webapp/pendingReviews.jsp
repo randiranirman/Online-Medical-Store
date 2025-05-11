@@ -39,8 +39,9 @@
                         <input type="hidden" name="reviewId" value="<%= review.getId() %>">
                         <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-md">Approve</button>
                     </form>
-                    <form action="<%=request.getContextPath()%>/deleteReview" method="post">
+                    <form action="<%=request.getContextPath()%>/delete" method="post">
                         <input type="hidden" name="reviewId" value="<%= review.getId() %>">
+                        <input type="hidden" name="type" value=review"">
                         <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md">Delete</button>
                     </form>
                 </td>
