@@ -3,6 +3,7 @@ package org.example.onlinemediclestore.utils;
 import org.example.onlinemediclestore.Classes.Review;
 import org.example.onlinemediclestore.Classes.VerifiedReview;
 import org.example.onlinemediclestore.Classes.PublicReview;
+import org.example.onlinemediclestore.FileConfig.Config;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,7 +18,7 @@ public class ReviewManager {
     private static ReviewManager instance;
 
     private ReviewManager() {
-        this.reviewCRUD = new GenericCRUD<>(Review.class, REVIEWS_FILE_PATH);
+        this.reviewCRUD = new GenericCRUD<>(Review.class, Config.REVIEWS.getPath());
     }
 
     public static synchronized ReviewManager getInstance() {

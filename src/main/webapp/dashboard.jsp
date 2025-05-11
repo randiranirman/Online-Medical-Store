@@ -7,6 +7,8 @@
         response.sendRedirect("dashboard.jsp");
         return;
     }
+    var medicine  = (Medicine) session.getAttribute("medicine");
+
 %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>

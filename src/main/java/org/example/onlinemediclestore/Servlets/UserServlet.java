@@ -65,7 +65,7 @@ public class    UserServlet extends HttpServlet {
                session.setAttribute("id", userID);
                session.setAttribute("username",username);
                session.setAttribute("name", name);
-               session.setAttribute("password", password);
+
                session.setAttribute("role", role);
 
 
@@ -96,7 +96,7 @@ public class    UserServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request , HttpServletResponse response){
-
+        // post methoe  is enough
 
 
     }
