@@ -30,6 +30,7 @@ public class AdminPendingReviews  extends HttpServlet {
 
         HttpSession session = request.getSession();
          User user = (User) session.getAttribute("user");
+         System.out.println("User : " + user);
 
 
 
